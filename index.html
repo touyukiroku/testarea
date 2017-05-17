@@ -1,0 +1,20 @@
+<html>
+ <body>
+   <!-- ライブラリ読み込み -->
+   <script src="https://cdn.rawgit.com/cidreixd/webmo-library-javascript/master/dist/webmo.min.js"></script>
+   <!-- 2秒間回す -->
+   <script type="text/javascript">
+       //Webmo.wsのインスタンス化
+       var webmo = new Webmo.ws("webmo-cmp25-1.local");// 引数にはホスト名を指定します
+
+       // ブラウザがWebmoに接続したら呼ばれる関数
+       webmo.onopen = function () {
+           webmo.rotate(360) // 360[度/秒]で回転する
+           //2秒後に停止する
+           setTimeout(function () {
+               webmo.stop()
+           }, 2000)
+       }
+   </script>
+ </body>
+ </html>
